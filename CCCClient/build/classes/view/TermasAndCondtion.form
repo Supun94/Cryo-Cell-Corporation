@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jPanel2" alignment="1" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="jPanel2">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="jPanel1">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane1" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jRadioButton1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jRadioButton2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
+                                      <Component id="btnSubmit" min="-2" pref="87" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                      <Component id="jLabel1" min="-2" pref="487" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="0" pref="386" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="266" max="-2" attributes="0"/>
+                      <EmptySpace pref="71" max="32767" attributes="0"/>
+                      <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnSubmit" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="SimSun-ExtB" size="36" style="3"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Terms and Conditions"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnSubmit">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Submit"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSubmitActionPerformed"/>
+              </Events>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="jTextArea1">
+                  <Properties>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="rows" type="int" value="5"/>
+                    <Property name="text" type="java.lang.String" value="ACCEPTANCE OF TERMS: PLEASE READ THE FOLLOWING TERMS AND CONDITIONS RELATING TO YOUR USE OF THIS WEBSITE CAREFULLY. BY USING THIS WEBSITE, YOU ARE DEEMED TO HAVE AGREED TO THESE TERMS AND CONDITIONS AND OUR PRIVACY POLICY, WHICH IS INCORPORATED HEREIN BY REFERENCE. WE RESERVE THE RIGHT TO CHANGE THESE TERMS AND CONDITIONS AND THE PRIVACY POLICY AT ANY TIME. YOU SHOULD CHECK THESE TERMS AND CONDITIONS PERIODICALLY FOR CHANGES. BY USING THIS WEBSITE AFTER WE POST ANY CHANGES TO THESE TERMS AND CONDITIONS, YOU AGREE TO ACCEPT THOSE CHANGES, WHETHER OR NOT YOU HAVE REVIEWED THEM. IF AT ANY TIME YOU CHOOSE NOT TO ACCEPT THESE TERMS AND CONDITIONS PLEASE DO NOT USE THIS WEBSITE.&#xa;DESCRIPTION AND USE OF THIS WEBSITE: The Cryo Cell Corporation requires that all visitors to this World Wide Website owned, operated, licensed, and controlled by The Cryo Cell Corporation(the &#x201c;Website&#x201d;) adhere to the following Terms And Conditions of Use. The Cryo Cell Corporation may change, suspend or discontinue any aspect of the Website at any time, including the availability of any feature, database or content. The Cryo Cell Corporation may also impose limits on certain features and services and/or restrict your access to parts or all of the Website without notice or liability of any kind. To the extent that you and The Cryo Cell Corporation have entered into a client&apos;s service/license agreement (&#x201c;Client Agreement&#x201d;) for any portion of the Website, the terms and conditions of the Client Agreement will control in the event that of any provisions that may conflict with these Terms and Conditions of Use.&#xa;This Website provides authorized users with access to a collection of resources, including access to certain service deliverables, articles, and insights for general informational purposes. The Content (as such term is defined below) is to be used solely as a research tool and not as specific guides for action. YOU UNDERSTAND AND AGREE THAT THIS WEBSITE AND THE CONTENT IS PROVIDED &quot;AS-IS&quot; AND YOU ASSUME FULL RISK FOR ANY AND ALL USE OF THIS WEBSITE AND FOR ANALYSIS OF THE CONTENT. You may not use this Website or the Content for any illegal purpose or in any manner inconsistent with these Terms and Conditions of Use. We make every effort to ensure that the Content on this Website is accurate and up to date, however accuracy cannot be guaranteed.&#xa;You are responsible for obtaining access to the Service and that access may involve third party fees (such as Internet service provider or airtime charges). In addition, you must provide and are responsible for all equipment necessary to access the Website. No installation, implementation, customization, consultation, support or similar services are included within the scope of these Terms and Conditions of Use.&#xa;PASSWORD: To the extent that your use of this Website is in connection with services received through a Client Agreement, we will request that you select a Password and Screen Name in connection with the operation of this Website. You alone are responsible for maintaining the confidentiality of your Password and Screen Name. You are responsible for all uses of our services with your Password and Screen Name, with or without your consent, by yourself and others.&#xa;FORUMS/BLOGS: You may access certain &quot;forums&quot; or &#x201c;blogs&#x201d; through the Website. You may not post on any forum/blog any material that is libelous, defamatory, obscene, abusive, invades a person&apos;s privacy, violates any intellectual property rights, or that would otherwise violate any law. You acknowledge that you are responsible for whatever material you submit, and you, not The Futures Company, have full responsibility for the message, including its legality, reliability, appropriateness, originality, and copyright. You may not post material that solicits funds, or that advertises or solicits goods or services. You may not post material known to be false. You may not post or transmit any information, software or other material that contains a virus or other harmful component. We also reserve the right to remove any such violative material. All remarks, suggestions, ideas, graphics or other information communicated through the Website will become, once posted, the property of The Cryo Cell Corporation (&#x201c;Posting&#x201d;). The Cryo Cell Corporation will not be required to treat any Posting as confidential. The Cryo Cell Corporation will be entitled to use the Postings for any commercial or other purpose whatsoever, without compensation to you or any other person. You agree to indemnify, defend and hold The Cryo Cell Corporation harmless from any liability arising due to the use or distribution of your Postings. You further grant The Cryo Cell Corporation the right to use your name in connection with the reproduction or distribution of your Postings.&#xa;GLOBALSTREETSCAPES: To the extent that your service includes access to GlobalStreetScapes, you understand that this service is a news and information resource. Thus, it is understood that any references to names, logos or trademarks of third parties are necessary in the course of providing news.&#xa;MODIFICATIONS TO WEBSITE: We reserve the right at any time to modify or discontinue, temporarily or permanently, this Website (or any part thereof) with or without notice. You agree that we shall not be liable to you or to any third party for any modification, suspension or discontinuance of this Website.&#xa;COPYRIGHTS/RESTRICTIONS ON USE OF CONTENT: The content, including but not limited to the written materials, images, audio, video and all other materials and information on this Website (&#x201c;Content&#x201d;) is the intellectual property of The Cryo Cell Corporation or republished by The Cryo Cell Corporation under limited exceptions to the copyright laws. All rights of The Cryo Cell Corporation or other copyright holders are reserved. Content from this Website may only be used, copied, and/or reproduced for internal business informational purposes. In no event may it be used for the commercialization of any product, service or entity, or released to the general public. You agree that if you download any Content that you will assure that the Content is used only as permitted by these Terms and Conditions of Use. You also agree that you will not change any Content or create your own derivative work from any Content. Any other use of or link to the Content on this Website, including reproduction for purposes other than those noted above, without the prior written permission of The Cryo Cell Corporation is strictly prohibited. You may seek our permission by writing to The Futures Company, Attention: Jennifer Childs, The Futures Company, 6 More London Place, Tooley Street, London SE1 2QY, United Kingdom. If permission is granted by us (or by other entities with an interest in the relevant intellectual property), you may not change or delete any author attribution, trademark, legend or copyright notice. In the event that you are given authority to use any Content, your use of any Content should be attributed to The Cryo Cell Corporation or the author if specified.&#xa;Where copyright for any Content is not owned by The Futures Company, the source of this Content is provided (&#x201c;Third Party Content&#x201d;). Any copying, republication or redistribution of Third Party Content whatsoever is expressly prohibited. Thus, should you wish to use any Third Party Content you are responsible for seeking appropriate approvals from the copyright owner.&#xa;If you use Content from this Website in violation of these Terms and Conditions of Use you may be in violation of your Client Agreement and may be subject to termination of your Client Agreement and damages for the copyright violation under federal statutes.&#xa;TRADEMARKS/LOGOS: This Website contains many valuable trademarks, names, titles, logos and other proprietary materials owned and registered by The Cryo Cell Corporation and its affiliates (&#x201c;Trademarks&#x201d;). Nothing contained on this Website should be construed as granting any license or right to use any Trademark displayed on this Website. All other trademarks appearing on the Website are trademarks of their respective owners and nothing contained on this Website should be construed as granting any license to use the trademark owned by any other third party. Our reference to any third party trademarks does not imply or indicate any approval or endorsement by their owners, or The Futures Company&#x2019;s approval or endorsement of the owners or their products or services.&#xa;LINKED SITES: This Website may include links to other sites which are not maintained by The Futures Company. The Cryo Cell Corporation is not responsible for the content of those sites and makes no representations whatsoever concerning the content or accuracy of, opinions expressed in or other links provided by, such other sites. The inclusion of any link to such sites does not imply endorsement by The Cryo Cell Corporation of the sites or any products or services referred to therein. The Cryo Cell Corporation may terminate a link at any time. The terms of use and privacy policies applicable to such sites may be different from those applicable to the Website. If you decide to access any third party site linked to the Website, you do so entirely at your own risk and The Cryo Cell Corporation shall have no liability for any loss or damage arising from your use of any such site. Any owner of a site which may be referred to or to which a link is provided in this Website, may request that the link be removed, by promptly notifying us in writing by fax or regular mail (not by email) at the following address: Jennifer Childs, The Futures Company, 6 More London Place, Tooley Street, London SE1 2QY, United Kingdom. Please include the following information in your Notice: (i) your full name, address, telephone number and email address; (ii) full details of the location on this Website of the material or information in question (including the URL of the link shown on the Website where such material or information may be found); and (iii) full details of why you want the link removed.&#xa;NOTIFICATION OF ALLEGED INFRINGEMENT OF COPYRIGHT OR OTHER INTELLECTUAL PROPERTY RIGHTS: In order to promptly address claims of alleged infringement of intellectual property rights, we have established the following procedures. If you are the owner of copyright or other Intellectual Property Rights, or have been authorized to act on behalf of the owner of such rights, and you believe your rights have been or are being infringed, please notify us immediately. Notice should be in writing and should be sent by fax or regular mail (not by email) to the following address: Jennifer Childs, The Futures Company, 6 More London Place, Tooley Street, London SE1 2QY, United Kingdom Notices should include the information set forth below. Please note that you will be liable for damages (including costs and attorneys&apos; fees) if you materially misrepresent that an activity is infringing your copyrights or other Intellectual Property Rights. Accordingly, if you are not sure whether certain material of yours is protected by copyright laws, we suggest that you first contact an attorney. To expedite our ability to process your request, please use the following format (including section numbers): (i) Identify in sufficient detail the copyrighted work that you believe has been infringed. For example, &quot;The copyrighted work at issue is the text that appears on http://www.legal.com/legal_page.html&quot;; (ii) Identify the material that you claim is infringing the copyrighted work listed in item #1 above. Identify each page that allegedly contains infringing material by providing its URL; (iii) Provide information reasonably sufficient to permit us to contact you (email address is preferred); (iv) Include the following statement: &quot;I have a good faith belief that use of the copyrighted materials as described above is not authorized by the copyright owner, its agent, or the law.&quot;; (v) Include the following statement: &quot;I swear, under penalty of perjury, that the information in the notification is accurate and that I am the copyright owner or am authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.&quot; ; (vi) Sign the paper; and (vii) Send the written communication to our designated contact, Jennifer Childs. Failure to include all of the above information may result in a delay of the processing the notification.&#xa;NOTIFICATION OF ALLEGED UNLAWFUL ACTIVITIES: If you believe in good faith that any unlawful activity is taking place on or through this Website or that any unlawful information has been submitted or uploaded on or to this Website, please promptly report the same to us by sending written notice by fax or regular mail (not by email) to the following address: Jennifer Childs, The Futures Company, 6 More London Place, Tooley Street, London SE1 2QY, United Kingdom Please include the following information in your Notice of Unlawful Activity: (i) your full name, address, telephone number and email address; (ii) full details of the location on this Website of the material or information in question (including the URL of the link shown on the Website where such material or information may be found); and (iii) full details of the unlawful nature of the activity or material or information in question.&#xa;WHAT WE WILL DO WHEN WE RECEIVE A NOTICE OF INFRINGEMENT OR NOTICE OF UNLAWFUL ACTIVITY: If we receive full and proper notification of an alleged infringement of Intellectual Property Rights or of any unlawful activity occurring on or through this Website or of any unlawful information being submitted or uploaded on or to this Website, we will take such action which we believe to be appropriate in the circumstances. Without limiting the foregoing, we will make an attempt to secure the voluntary take down of the Content which is the subject of any Notice of Infringement or Notice of Unlawful Activity. In any event, we reserve the right, in our sole discretion and without notice to any User, to: (i) delete, move, edit and/or disable access to any Content which is the subject of any Notice of Infringement or Notice of Unlawful Activity; or (ii) terminate access of any User whose Content is the subject of any Notice of Infringement or Notice of Unlawful Activity.&#xa;LICENSE: Use of portions of this Website may be subject to the terms of a Client Agreement. Subject to the terms of the Client Agreement, we grant to you a limited, nonexclusive, nontransferable, nonsublicensable license to use this Website, solely for your internal business purposes. The Client Agreement may limit the number of users who are allowed access to this Website. You are required to take reasonable measures to protect access information and to assure that you do not permit unauthorized use of or access to this Website. We may audit your use of this Website to assure compliance with access restrictions and will pursue all available remedies for a breach of these access rules. You may not sell, rent, lease, lend, or transfer any services provided on this Website and you may not assign or sublicense your license to this Website. To the extent that you are not subject to a Client Agreement, we grant to you a limited, nonexclusive, nontransferable, nonsublicensable license to use those non-password protected portions of this Website, solely for your personal or business use. The licenses set forth herein may be terminated in the event you breach the terms of these Terms and Conditions of Use. RIGHTS NOT EXPRESSLY GRANTED HEREIN ARE RESERVED BY THE FUTURES COMPANY.&#xa;TERMINATION: You understand that we may in our sole discretion terminate your ability to use this Website if you violate these Terms and Conditions of Use. You may terminate these Terms and Conditions of Use by destroying all materials obtained from this Website and all related documentation and all copies and installations. The Cryo Cell Corporationmay terminate these Terms and Conditions of Use immediately without notice if, in its sole judgment, you breach any of these Terms and Conditions of Use. Upon termination, you must destroy all materials obtained from this site and all related documentation and all copies and installations. You may not access this site after termination of these Terms and Conditions of Use without the written approval of The Futures Company, provided, however, that The Cryo Cell Corporationshall retain all rights, including all copyright rights and the right to use Postings as provided herein, and the limitations on use and treatment of the Contents shall remain in full force.&#xa;DISCLAIMER: YOU EXPRESSLY UNDERSTAND AND AGREE THAT:&#xa;1.YOUR USE OF THE SERVICE IS AT YOUR SOLE RISK. THE SERVICE IS PROVIDED ON AN &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; BASIS. WE EXPRESSLY DISCLAIM ALL WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.&#xa;2. WE MAKE NO WARRANTY THAT (i) THE SERVICE WILL MEET YOUR REQUIREMENTS, (ii) THE SERVICE WILL BE UNINTERRUPTED, TIMELY, SECURE, OR ERROR-FREE, (iii) THE RESULTS THAT MAY BE OBTAINED FROM THE USE OF THE SERVICE WILL BE ACCURATE OR RELIABLE, (iv) THE QUALITY OF THE CONTENT OBTAINED BY YOU THROUGH THE SERVICE WILL MEET YOUR EXPECTATIONS, (v) ANY ERRORS IN THE SOFTWARE WILL BE CORRECTED, (vi) OR THAT THIS WEB WEBSITE, ITS CONTENT, AND THE SERVERS ON WHICH THE WEB WEBSITE AND CONTENT ARE AVAILABLE ARE FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS.&#xa;3. ANY MATERIAL DOWNLOADED OR OTHERWISE OBTAINED THROUGH THE USE OF THE SERVICE IS DONE AT YOUR OWN DISCRETION AND RISK AND THAT YOU WILL BE SOLELY RESPONSIBLE FOR ANY DAMAGE TO YOUR COMPUTER SYSTEM OR LOSS OF DATA THAT RESULTS FROM THE DOWNLOAD OF ANY SUCH MATERIAL.&#xa;4. NO ADVICE OR INFORMATION, WHETHER ORAL OR WRITTEN, OBTAINED BY YOU FROM US OR THROUGH OR FROM THE SERVICE SHALL CREATE ANY WARRANTY.&#xa;5. THIS WEBSITE MAY CONTAIN VARIOUS COMBINATIONS OF TEXT, IMAGES, AUDIOVISUAL PRODUCTIONS, OPINIONS, STATEMENTS, FACTS, ARTICLES, MARKET DATA, STOCK QUOTES OR OTHER INFORMATION CREATED BY US OR BY THIRD-PARTIES. DUE TO THE NUMBER OF SOURCES FROM WHICH CONTENT IN THIS WEBSITE IS OBTAINED, AND THE INHERENT HAZARDS OF ELECTRONIC DISTRIBUTION, THERE MAY BE DELAYS, OMISSIONS OR INACCURACIES IN SUCH CONTENT. ACCORDINGLY, SUCH CONTENT, INCLUDING THE MARKET DATA, IS FOR YOUR REFERENCE ONLY AND SHOULD NOT BE RELIED UPON BY YOU FOR ANY PURPOSE.&#xa;6. INFORMATION CREATED BY THIRD PARTIES THAT YOU MAY ACCESS ON THE WEBSITE OR THROUGH LINKS IS NOT ADOPTED OR ENDORSED BY THE CRYO CELL CORPORATIONAND REMAINS THE RESPONSIBILITY OF SUCH THIRD PARTIES.&#xa;LIMITATION OF LIABILITY: YOU EXPRESSLY UNDERSTAND AND AGREE THAT THE CRYO CELL CORPORATIONSHALL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR EXEMPLARY DAMAGES, (EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES) WHATSOEVER.&#xa;NON-WAIVER: Our failure to exercise or enforce any right or provision of hereunder shall not constitute a waiver of such right or provision. If any provision hereunder is found by a court of competent jurisdiction to be invalid, the parties nevertheless agree that the court should attempt to give effect to the parties&apos; intentions as reflected in the provision, and the other provisions hereof shall remain in full force and effect. You agree that regardless of any statute or law to the contrary, any claim or cause of action arising out of or related to use of the Website or these Terms and Conditions of Use must be filed within one (1) year after such claim or cause of action arose or be forever barred.&#xa;INDEMNITY: You agree to indemnify, and hold The Cryo Cell Corporation and its affiliates and each of their directors, officer, employees and agents (&#x201c;The Cryo Cell Corporation Indemnities&#x201d;) harmless from and against any and all claims, actions or demands brought against The Cryo Cell Corporation Indemnities arising out of or relating to your use of the Website or your breach of these Terms and Conditions of Use. The indemnification set forth in this Paragraph shall include all expenses and costs (including reasonable attorney fees) resulting from or arising out of the above claims.&#xa;MISCELLANEOUS: These terms will be governed by and construed in accordance with the laws of the State of New York, without regard to any principles of conflicts of law. You agree that any action at law or in equity that arises out of or relates to these terms will be filed only in the state or federal courts located in New York, New York, and you hereby consent and submit to the personal jurisdiction of such courts for the purposes of litigating any such action. If any of these Terms and Conditions of Use is found unlawful, void, or for any reason unenforceable, then that provision will be considered severable from the remaining terms and conditions, and will not affect the validity and enforceability of the remaining provisions. These Terms and Conditions of Use and, to the extent applicable the Client Agreement constitute the entire agreement between you and us relating to the subject matter it contains. These Terms and Conditions of Use may be modified only by our posting of changes to these Terms and Conditions of Use.&#xa;AGREEMENT: By using the Website, you are deemed to agree to these Terms and Conditions of Use.&#xa;&#xa;"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="I,Agree to the above terms and conditions."/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton1ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="I, Dont agree to the terms and conditions."/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>

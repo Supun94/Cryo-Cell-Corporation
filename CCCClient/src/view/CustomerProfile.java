@@ -1,0 +1,622 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package view;
+
+import connector.ServerConnector;
+import controller.CustomerController;
+import controller.PaymentController;
+import controller.FridgeController;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.net.MalformedURLException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.sql.SQLException;
+import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import model.Customer;
+import model.Payment;
+import model.Fridge;
+
+/**
+ *
+ * @author Supun
+ */
+public class CustomerProfile extends javax.swing.JInternalFrame {
+
+    /**
+     * Creates new form ViewAllCustomersForm
+     */
+    private static JTextField searchComboText;
+    private static String[] searchComboList;
+    public static String cid;
+    public static String sid;
+
+    public CustomerProfile() {
+        try {
+            initComponents();
+            fillCombo();
+            // filTable();
+            setVisible(true);
+            searchComboText.addKeyListener(new KeyAdapter() {
+                public void keyReleased(KeyEvent evt) {
+                    try {
+                        String nic = (String) searchCombo.getSelectedItem();
+                        CustomerController customerController = ServerConnector.getServerConnector().getCustomerController();
+                        Customer searchByNic = customerController.searchByNic(nic);
+                        if (searchByNic != null) {
+                            cidText.setText(searchByNic.getCustID());
+                            nameText.setText(searchByNic.getFirstName() + " " + searchByNic.getLastName());
+                            titleLabel.setText(searchByNic.getFirstName() + " " + searchByNic.getLastName());
+                            addressText.setText(searchByNic.getAddress());
+                            contactText.setText(searchByNic.getContactNo());
+                            // dateText.setText(searchByNic.getRegisterdate());
+                            sidCombo.removeAllItems();
+                            FridgeController storageController = ServerConnector.getServerConnector().getFridgeController();
+                            String[] customerSid = storageController.getCustomerSid(cidText.getText());
+                            if (customerSid != null) {
+                                for (int i = 0; i < customerSid.length; i++) {
+                                    sidCombo.addItem(customerSid[i]);
+                                    System.out.println(customerSid);
+                                }
+                            }
+                        } else {
+                            cidText.setText("");
+                            nameText.setText("");
+                            titleLabel.setText("");
+                            addressText.setText("");
+                            contactText.setText("");
+                            dateText.setText("");
+                            sidCombo.removeAllItems();
+                        }
+
+                    } catch (SQLException ex) {
+                        Logger.getLogger(CustomerProfile.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(CustomerProfile.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (NotBoundException ex) {
+                        Logger.getLogger(CustomerProfile.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (MalformedURLException ex) {
+                        Logger.getLogger(CustomerProfile.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (RemoteException ex) {
+                        Logger.getLogger(CustomerProfile.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            });
+        } catch (RemoteException ex) {
+            Logger.getLogger(CustomerProfile.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NotBoundException ex) {
+            Logger.getLogger(CustomerProfile.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(CustomerProfile.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(CustomerProfile.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(CustomerProfile.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel3 = new javax.swing.JPanel();
+        installmentAmountLabel = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        table = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        searchCombo = new javax.swing.JComboBox();
+        jLabel3 = new javax.swing.JLabel();
+        cidText = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        dateText = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        nameText = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        addressText = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        contactText = new javax.swing.JTextField();
+        installmentLabel = new javax.swing.JLabel();
+        titleLabel = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        optionText = new javax.swing.JTextField();
+        sidCombo = new javax.swing.JComboBox();
+        jLabel10 = new javax.swing.JLabel();
+        typeText = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        dueText = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        storeDateText = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        statusText = new javax.swing.JTextField();
+        paymentButton = new javax.swing.JButton();
+        titleLabel1 = new javax.swing.JLabel();
+        feeLabel = new javax.swing.JLabel();
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        installmentAmountLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        table.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Payment Date", "Payment Type", "Amount", "Payment for"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        table.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        table.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(table);
+        if (table.getColumnModel().getColumnCount() > 0) {
+            table.getColumnModel().getColumn(0).setResizable(false);
+            table.getColumnModel().getColumn(1).setResizable(false);
+            table.getColumnModel().getColumn(2).setResizable(false);
+            table.getColumnModel().getColumn(3).setResizable(false);
+        }
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "Search Details"));
+
+        jLabel2.setText("Customer NIC");
+
+        searchCombo.setEditable(true);
+        searchCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchComboActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Customer CID");
+
+        jLabel4.setText("Register Date");
+
+        jLabel5.setText("Customer Name");
+
+        jLabel6.setText("Customer Address");
+
+        jLabel7.setText("Contact");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(searchCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(nameText, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(66, 66, 66)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(addressText, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cidText, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(97, 97, 97)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(dateText, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                    .addComponent(contactText))
+                .addGap(36, 36, 36))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(searchCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(cidText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(dateText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(nameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(addressText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(contactText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        installmentLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        installmentLabel.setText("Installment");
+
+        titleLabel.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        titleLabel.setForeground(new java.awt.Color(255, 0, 0));
+        titleLabel.setText("Name");
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "Sample Details"));
+
+        jLabel8.setText("SID");
+
+        jLabel9.setText("Payment Option");
+
+        sidCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sidComboActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setText("Payment Type");
+
+        jLabel11.setText("Due Date");
+
+        jLabel12.setText("Stored Date");
+
+        jLabel13.setText("Present Status");
+
+        statusText.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        statusText.setForeground(new java.awt.Color(0, 0, 255));
+
+        paymentButton.setText("Make Payment");
+        paymentButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paymentButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(sidCombo, 0, 184, Short.MAX_VALUE)
+                    .addComponent(dueText))
+                .addGap(71, 71, 71)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(storeDateText, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(163, 163, 163)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(optionText, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(paymentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(typeText, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(statusText, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9)
+                            .addComponent(optionText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sidCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10)
+                            .addComponent(typeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(29, Short.MAX_VALUE)
+                        .addComponent(paymentButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(dueText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12)
+                    .addComponent(storeDateText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13)
+                    .addComponent(statusText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        titleLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        titleLabel1.setText("Annual Fee");
+
+        feeLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1129, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(93, 93, 93)
+                        .addComponent(titleLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(feeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(101, 101, 101)
+                        .addComponent(installmentLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53)
+                        .addComponent(installmentAmountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(titleLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(feeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(installmentLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(installmentAmountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(12, 12, 12)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void searchComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchComboActionPerformed
+        try {
+            String nic = (String) searchCombo.getSelectedItem();
+            DefaultTableModel tableModel1 = (DefaultTableModel) table.getModel();
+            tableModel1.setRowCount(0);
+            CustomerController customerController = ServerConnector.getServerConnector().getCustomerController();
+            Customer searchByNic = customerController.searchByNic(nic);
+            if (searchByNic != null) {
+                cidText.setText(searchByNic.getNic());
+                nameText.setText(searchByNic.getFirstName() + " " + searchByNic.getLastName());
+                titleLabel.setText(searchByNic.getFirstName() + " " + searchByNic.getLastName());
+                addressText.setText(searchByNic.getAddress());
+                contactText.setText(searchByNic.getContactNo());
+                // dateText.setText(searchByNic.getRegisterdate());
+                sidCombo.removeAllItems();
+                FridgeController storageController = ServerConnector.getServerConnector().getFridgeController();
+                String[] customerSid = storageController.getCustomerSid(cidText.getText());
+                if (customerSid != null) {
+                    for (int i = 0; i < customerSid.length; i++) {
+                        sidCombo.addItem(customerSid[i]);
+                    }
+                }
+            } else {
+                cidText.setText("");
+                nameText.setText("");
+                titleLabel.setText("");
+                addressText.setText("");
+                contactText.setText("");
+                dateText.setText("");
+                sidCombo.removeAllItems();
+                DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
+                tableModel.setRowCount(0);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CustomerProfile.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(CustomerProfile.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NotBoundException ex) {
+            Logger.getLogger(CustomerProfile.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(CustomerProfile.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (RemoteException ex) {
+            Logger.getLogger(CustomerProfile.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_searchComboActionPerformed
+
+    private void sidComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sidComboActionPerformed
+        try {
+            sid = (String) sidCombo.getSelectedItem();
+            cid = cidText.getText();
+            String sid = (String) sidCombo.getSelectedItem();
+
+            PaymentController paymentController = ServerConnector.getServerConnector().getPaymentController();
+            Payment selectedPayment = paymentController.getSelectedPayment(sid);
+            if (selectedPayment != null) {
+                optionText.setText(selectedPayment.getPaymentOption());
+                typeText.setText(selectedPayment.getPaymentType());
+                dueText.setText(selectedPayment.getDueDate());
+                boolean due = paymentController.isDue(selectedPayment.getDueDate());
+                if (!due) {
+                    statusText.setText("Settled");
+                } else {
+                    statusText.setText("Due Payment");
+                }
+                FridgeController storageController = ServerConnector.getServerConnector().getFridgeController();
+                storeDateText.setText(storageController.getStoredDate(sid));
+                feeLabel.setText(Double.toString(selectedPayment.getAnnualFee()));
+                if (selectedPayment.getPaymentOption().equals("Installment")) {
+                    installmentLabel.setVisible(true);
+                    installmentAmountLabel.setVisible(true);
+                    installmentAmountLabel.setText(Double.toString(selectedPayment.getPaymentAmount()));
+                } else {
+                    if (paymentController.isPaymentAvailable(sid)) {
+                        statusText.setText("Settled");
+                        dueText.setText("No Due");
+                    }
+                    installmentLabel.setVisible(false);
+                    installmentAmountLabel.setVisible(false);
+                }
+                DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
+                tableModel.setRowCount(0);
+                Payment[] allSidPayments = paymentController.getAllSidPayments(sid);
+                if (allSidPayments != null) {
+                    for (int i = 0; i < allSidPayments.length; i++) {
+                        Object[] row = {allSidPayments[i].getPaymentDate(), allSidPayments[i].getPaymentType(), allSidPayments[i].getPaymentAmount(), allSidPayments[i].getDescription()};
+                        tableModel.addRow(row);
+
+                    }
+                }
+
+            } else {
+                optionText.setText("");
+                typeText.setText("");
+                dueText.setText("");
+                statusText.setText("");
+                storeDateText.setText("");
+                feeLabel.setText("");
+                installmentLabel.setVisible(false);
+                installmentAmountLabel.setVisible(false);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CustomerProfile.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(CustomerProfile.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NotBoundException ex) {
+            Logger.getLogger(CustomerProfile.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(CustomerProfile.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (RemoteException ex) {
+            Logger.getLogger(CustomerProfile.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_sidComboActionPerformed
+
+    private void paymentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentButtonActionPerformed
+        new PaymentForm().setVisible(true);
+    }//GEN-LAST:event_paymentButtonActionPerformed
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField addressText;
+    private javax.swing.JTextField cidText;
+    private javax.swing.JTextField contactText;
+    private javax.swing.JTextField dateText;
+    private javax.swing.JTextField dueText;
+    private javax.swing.JLabel feeLabel;
+    private javax.swing.JLabel installmentAmountLabel;
+    private javax.swing.JLabel installmentLabel;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField nameText;
+    private javax.swing.JTextField optionText;
+    private javax.swing.JButton paymentButton;
+    private javax.swing.JComboBox searchCombo;
+    private javax.swing.JComboBox sidCombo;
+    private javax.swing.JTextField statusText;
+    private javax.swing.JTextField storeDateText;
+    private javax.swing.JTable table;
+    private javax.swing.JLabel titleLabel;
+    private javax.swing.JLabel titleLabel1;
+    private javax.swing.JTextField typeText;
+    // End of variables declaration//GEN-END:variables
+//public void filTable() throws RemoteException, NotBoundException, MalformedURLException, SQLException, ClassNotFoundException {
+//        FridgeController storageController = ServerConnector.getServerConnector().getFridgeController();
+//        Fridge[] allSample = storageController.getAllSample();
+//        DefaultTableModel tableModel=(DefaultTableModel) table.getModel();
+//        tableModel.setRowCount(0);
+//        if(allSample!=null){
+//        for(int i=0;i<allSample.length;i++){
+//        Object[] row={allSample[i].getCustID(),allSample[i].getFridgeID(),allSample[i].getStoreDate(),allSample[i].getLocationName(),allSample[i].getRefNo(),allSample[i].getCSCno(),allSample[i].getMatrixno()};
+//        tableModel.addRow(row);
+//        }
+//        }
+//    }
+
+    public void fillCombo() throws RemoteException, NotBoundException, MalformedURLException, SQLException, ClassNotFoundException {
+        CustomerController customerController = ServerConnector.getServerConnector().getCustomerController();
+        String[][] allCidNic = customerController.getAllCidNic();
+        if (allCidNic != null) {
+            for (int i = 0; i < allCidNic.length; i++) {
+                searchCombo.addItem(allCidNic[i][1]);
+            }
+        }
+        searchComboText = (JTextField) searchCombo.getEditor().getEditorComponent();
+        searchComboList = new String[searchCombo.getItemCount()];
+        for (int i = 0; i < searchComboList.length; i++) {
+            searchComboList[i] = (String) searchCombo.getItemAt(i);
+        }
+
+        searchComboText.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent evt) {
+                String txt = searchComboText.getText();
+                searchCombo.removeAllItems();
+                searchCombo.hidePopup();
+
+                for (int i = 0; i < searchComboList.length; i++) {
+                    if (searchComboList[i].toUpperCase().contains(txt.toUpperCase())) {
+                        searchCombo.addItem(searchComboList[i]);
+                    }
+                }
+                searchComboText.setText(txt);
+                searchCombo.showPopup();
+            }
+        });
+
+    }
+
+}
